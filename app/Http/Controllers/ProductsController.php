@@ -26,9 +26,10 @@ class ProductsController extends Controller
 
     public function show(Product $product)
     {
+        $product->load('deliveries');
+
         return view('products.show', [
-            'product' => $product,
-            'deliveries' => $product->deliveries()
+            'product' => $product
         ]);
     }
 
