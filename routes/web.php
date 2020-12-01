@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/products');
 
+Route::resource('/products', 'ProductsController');
 
-Route::get('products', 'ProductsController@index')->name('products.index');
-Route::get('products/{product}', 'ProductsController@show')->name('products.show');
+Route::get('/products', 'ProductsController@index')->name('products.index');
+Route::get('/products/{product}', 'ProductsController@show')->name('products.show');
