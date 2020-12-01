@@ -14,4 +14,9 @@ class Delivery extends Model
         'size',
         'price',
     ];
+
+    public function getPrice()
+    {
+        return '€ ' . number_format(($this->price/100), 2);
+    }
 }
